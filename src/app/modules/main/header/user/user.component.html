@@ -1,15 +1,19 @@
 <pf-dropdown hide-arrow class="user-menu">
-    <div slot="button">
-        <a class="nav-link">
+    <div slot="button" style="width:300px;">
+        <!-- <a class="nav-link">
             <pf-image
                 [src]="user.picture"
                 fallback-src="assets/img/default-profile.png"
-                class="user-image-small"
+                class=""
                 width="25"
                 height="25"
                 alt="User Image"
                 rounded
-            ></pf-image>
+            >{{ user.email }}</pf-image>
+        </a> -->
+
+        <a class="nav-link">
+            <i class="fa fa-user-circle" aria-hidden="true"></i> {{ user.email }}
         </a>
     </div>
     <div slot="menu">
@@ -33,7 +37,7 @@
             </p>
         </li>
         <!-- Menu Body -->
-        <li class="user-body">
+        <!-- <li class="user-body">
             <div class="row">
                 <div class="col-4 text-center">
                     <a [routerLink]="['/']">Followers</a>
@@ -45,8 +49,7 @@
                     <a [routerLink]="['/']">Friends</a>
                 </div>
             </div>
-            <!-- /.row -->
-        </li>
+        </li> -->
         <!-- Menu Footer-->
         <li class="user-footer">
             <a [routerLink]="['/profile']" class="btn btn-default btn-flat">

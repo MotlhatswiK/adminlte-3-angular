@@ -8,6 +8,8 @@ import {
 import {UntypedFormGroup, UntypedFormControl, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {AppService} from '@services/app.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
     selector: 'app-login',
@@ -21,10 +23,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     public isGoogleLoading = false;
     public isFacebookLoading = false;
 
+    userId: string = "berry@gmail.com";
+    password: string = "123";
+    errorMessage: string = '';
+
     constructor(
         private renderer: Renderer2,
         private toastr: ToastrService,
-        private appService: AppService
+        private appService: AppService,
+        private authService: AuthService,
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -66,4 +74,23 @@ export class LoginComponent implements OnInit, OnDestroy {
             'login-page'
         );
     }
+
+    onSubmit() {
+        this.authService.login(this.userId, this.password).subscribe({
+          next: (response) => {
+            // Handle successful login
+            console.log('Login successful', response);
+            this.router.navigate(['/dashboard']);
+          },
+          error: (error) => {
+            // Handle login error
+            console.error('Login error', error);
+            if (error.status === 401) {
+              this.errorMessage = 'Invalid email or password. Please try again.';
+            } else {
+              this.errorMessage = 'An unexpected error occurred. Please try again later.';
+            }
+          }
+        });
+      }
 }

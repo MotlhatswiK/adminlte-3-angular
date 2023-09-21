@@ -32,8 +32,16 @@ import {ControlSidebarComponent} from './modules/main/control-sidebar/control-si
 import {StoreModule} from '@ngrx/store';
 import {authReducer} from './store/auth/reducer';
 import {uiReducer} from './store/ui/reducer';
+import { FormsModule } from '@angular/forms';
 import {ProfabricComponentsModule} from '@profabric/angular-components';
 import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { TermComponent } from './term/term.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { OrdersComponent } from './orders/orders.component';
+import { QueriesComponent } from './query/queries/queries.component';
+import { QueryResponseComponent } from './query/query-response/query-response.component';
+import { QueryComposeComponent } from './query/query-compose/query-compose.component';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -59,12 +67,20 @@ registerLocaleData(localeEn, 'en-EN');
         SubMenuComponent,
         MenuItemComponent,
         ControlSidebarComponent,
-        SidebarSearchComponent
+        SidebarSearchComponent,
+        WelcomeComponent,
+        TermComponent,
+        ProductListComponent,
+        OrdersComponent,
+        QueriesComponent,
+        QueryResponseComponent,
+        QueryComposeComponent
     ],
     imports: [
         ProfabricComponentsModule,
         CommonModule,
         BrowserModule,
+        FormsModule,
         StoreModule.forRoot({auth: authReducer, ui: uiReducer}),
         HttpClientModule,
         AppRoutingModule,

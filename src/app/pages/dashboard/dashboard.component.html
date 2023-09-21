@@ -5,12 +5,12 @@
                 <h1 class="m-0 text-dark">Dashboard</h1>
             </div>
             <!-- /.col -->
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Dashboard v1</li>
                 </ol>
-            </div>
+            </div -->
             <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -20,81 +20,343 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
-<section class="content">
+<div class="content">
     <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>150</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-info">
+            <div class="card-header">
+              <h3 class="card-title">Product Sales</h3>
 
-                        <p>New Orders</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"
-                        >More info <i class="fas fa-arrow-circle-right"></i
-                    ></a>
-                </div>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                        <p>Bounce Rate</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"
-                        >More info <i class="fas fa-arrow-circle-right"></i
-                    ></a>
-                </div>
+            <div class="card-body">
+              <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>44</h3>
-
-                        <p>User Registrations</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"
-                        >More info <i class="fas fa-arrow-circle-right"></i
-                    ></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>65</h3>
-
-                        <p>Unique Visitors</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"
-                        >More info <i class="fas fa-arrow-circle-right"></i
-                    ></a>
-                </div>
-            </div>
-            <!-- ./col -->
+            <!-- /.card-body -->
+          </div>
         </div>
-        <!-- /.row -->
-    </div>
-    <!-- Main row -->
-</section>
+
+        <div class="col-md-6 col-sm-6 col-12">
+          <div class="info-box bg-info">
+            <span class="info-box-icon"><i class="fas fa-wallet"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Balance</span>
+              <span class="info-box-number">R 1,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                R 410 Added 30 Days ago
+              </span>
+            </div>
+          </div>
+
+          <!-- <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Messages</span>
+              <span class="info-box-number">50</span>
+            </div>
+          </div> -->
+
+          <!-- <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-copy"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Uploads</span>
+              <span class="info-box-number">16</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Messages</span>
+              <span class="info-box-number">50</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-copy"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Uploads</span>
+              <span class="info-box-number">16</span>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Messages</span>
+              <span class="info-box-number">1,410</span>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.col -->
+        <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Bookmarks</span>
+              <span class="info-box-number">410</span>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.col -->
+        <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Uploads</span>
+              <span class="info-box-number">13,648</span>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.col -->
+        <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Hits</span>
+              <span class="info-box-number">93,139</span>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.col -->
+      <!-- </div> -->
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="m-0">My Wallet</h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Information on My Wallet</h6> <br>
+              <span style="font-size: 10pt;">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, minus! Tenetur vel, 
+                quidem aliquid dolores maxime nobis exercitationem.
+              </span>
+
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Timestamp</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Goods Purchased</td>
+                    <td>19 Sep, 2023 12:45pm</td>
+                    <td style="color: red; text-align: center;">- R 100.00</td>
+                  </tr>
+                  <tr>
+                    <td>Top-Up</td>
+                    <td>19 Sep, 2023 12:45pm</td>
+                    <td style="color: rgb(33, 168, 3); text-align: center;">+ R 410.00</td>
+                  </tr>
+                </tbody>
+              </table> <br>
+
+              <a href="#" class="btn btn-primary">View Transactions</a>
+              <a href="#" class="btn btn-primary">Top Up</a>
+              <a href="#" class="btn btn-info">Get Receipt</a>
+              <!-- <a href="#" class="btn btn-warning">Checkout</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card Details</h5>
+
+              <p class="card-text">
+                Some quick example text to build on the card details and make up the bulk of the card's
+                content.
+              </p>
+
+              <a href="#" class="card-link">Add Market Card</a>
+              <a href="#" class="card-link">Load Funds</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-6">
+          <div class="card card-primary card-outline">
+            <div class="card-body">
+              <h5 class="card-title">C2C Trade Connections</h5>
+
+              <p class="card-text">
+                Some quick example text to build on the C2C Trade Connections details and make up the bulk of the
+                content.
+              </p>
+              <a href="#" class="card-link">View Linked Customers</a>
+              <a href="#" class="card-link">Product Request</a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-md-6">
+          !-- AREA CHART --
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Sales Management Chart</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart">
+                <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+            </div>
+            -- /.card-body --
+          </div>
+          -- /.card --
+        </div> -->
+        <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box bg-info">
+            <span class="info-box-icon"><i class="fas fa-wallet"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Balance</span>
+              <span class="info-box-number">R 1,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                R 410 Added 30 Days ago
+              </span>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.col -->
+        <!-- <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box bg-success">
+            <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Likes</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                70% Increase in 30 Days
+              </span>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h5 class="m-0">Available Stock</h5>
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th colspan="3">
+                      <div class="input-group input-group-sm">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+    
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tomatoes</td>
+                    <td>126</td>
+                    <td style="text-align: center;"><a><img src="../../../assets/img/product/tomatoes.jpg" alt="tomatoes" style="width: 60px;"></a></td>
+                  </tr>
+                  <tr>
+                    <td>Cabbage</td>
+                    <td>99</td>
+                    <td style="text-align: center;"><a><img src="../../../assets/img/product/cabbage.jpg" alt="cabbage" style="width: 60px;"></a></td>
+                  </tr>
+                  <tr>
+                    <td>Simmons</td>
+                    <td>3</td>
+                    <td style="text-align: center;"><a><img src="../../../assets/img/product/simmons.jpg" alt="simmons" style="width: 60px;"></a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="stock-btn">
+                <a [routerLink]="['/product-list']">
+                  <button type="button" class="btn btn-primary col-md-12">View more products</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h5 class="m-0">Queries</h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Special title treatment</h6>
+
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a class="btn btn-primary">View Queries</a>
+              <!-- <a href="#" class="btn btn-warning">Compose</a> -->
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-6 -->
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>
 <!-- /.content -->

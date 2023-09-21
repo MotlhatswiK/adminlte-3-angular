@@ -16,7 +16,7 @@ export class AppService {
             const token = await Gatekeeper.loginByAuth(email, password);
             localStorage.setItem('token', token);
             await this.getProfile();
-            this.router.navigate(['/']);
+            this.router.navigate(['/dashboard']);
             this.toastr.success('Login success');
         } catch (error) {
             this.toastr.error(error.message);

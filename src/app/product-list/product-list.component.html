@@ -1,0 +1,112 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+        <h1 class="m-0">Product Listing</h1>
+        </div>
+    </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <form action="#">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Product Type:</label>
+                                <select class="select2" data-placeholder="Any" style="width: 100%;">
+                                    <option>Cabbage</option>
+                                    <option>Tomatoes</option>
+                                    <option>Potatoes</option>
+                                    <option>Pumpkin</option>
+                                    <option>Mixed Vegtables</option>
+                                    <option>Simmons</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Grading:</label>
+                                <select class="select2" style="width: 100%;">
+                                    <option selected>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="col-3">
+                            <div class="form-group">
+                                <label>Price Range:</label>
+                                <select class="select2" style="width: 100%;">
+                                    <option selected>R10 - 100</option>
+                                    <option>R100 - 200</option>
+                                    <option>R200 - 300</option>
+                                    <option>R300 - 400</option>
+                                    <option>R400 - 500</option>
+                                    <option>R600 - 700</option>
+                                    <option>R700 - 800</option>
+                                    <option>R800 - 900</option>
+                                    <option>R900 - 1000</option>
+                                </select>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Type your keywords here" value="">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12">
+                <!-- <h4>Products</h4> -->
+                <div id="product">
+                    <div id="p_list" *ngFor="let category of categories">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <span style="font-size:16px;">{{ category.description}}</span>
+                            </div>
+                            <div class="card-body">
+                                <a style="text-align: center;"><img src="../../assets/img/product/{{ category.description}}.png "/></a> <!-- {{ category.description}}.png -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-8 col-sm-4 col-12" *ngif="list?.length > 0">
+            <h4>Shopping Cart</h4>
+                <div class = "panel-body table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Des</th>
+                                <th>id</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngfor="let data of list">
+                                <td>{{data.Description}}</td>
+                                <td>{{data.id}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+        </div>
+    </div><!-- /.container-fluid -->
+</div>
+

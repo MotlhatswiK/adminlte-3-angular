@@ -6,14 +6,24 @@ import {LoginComponent} from '@modules/login/login.component';
 import {ProfileComponent} from '@pages/profile/profile.component';
 import {RegisterComponent} from '@modules/register/register.component';
 import {DashboardComponent} from '@pages/dashboard/dashboard.component';
+import {TermComponent} from './term/term.component';
+import {ProductListComponent} from './product-list/product-list.component';
 import {AuthGuard} from '@guards/auth.guard';
 import {NonAuthGuard} from '@guards/non-auth.guard';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {MainMenuComponent} from '@pages/main-menu/main-menu.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { OrdersComponent } from './orders/orders.component';
+import { QueriesComponent } from './query/queries/queries.component';
+import { QueryResponseComponent } from './query/query-response/query-response.component';
+import { QueryComposeComponent } from './query/query-compose/query-compose.component';
 
 const routes: Routes = [
+    {
+        path: '', pathMatch:"full",component:WelcomeComponent
+    },
     {
         path: '',
         component: MainComponent,
@@ -37,9 +47,29 @@ const routes: Routes = [
                 component: BlankComponent
             },
             {
-                path: '',
+                path: 'dashboard',
                 component: DashboardComponent
-            }
+            },
+            {
+                path: 'product-list',
+                component: ProductListComponent,
+            },
+            {
+                path: 'orders',
+                component: OrdersComponent,
+            },
+            {
+                path: 'queries',
+                component: QueriesComponent,
+            },
+            {
+                path: 'query-response', //read the query
+                component: QueryResponseComponent,
+            },
+            {
+                path: 'query-compose',
+                component: QueryComposeComponent,
+            },
         ]
     },
     {
@@ -55,6 +85,11 @@ const routes: Routes = [
     {
         path: 'forgot-password',
         component: ForgotPasswordComponent,
+        canActivate: [NonAuthGuard]
+    },
+    {
+        path: 'terms',
+        component: TermComponent,
         canActivate: [NonAuthGuard]
     },
     {

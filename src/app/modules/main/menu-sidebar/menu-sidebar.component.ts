@@ -34,10 +34,40 @@ export class MenuSidebarComponent implements OnInit {
 export const MENU = [
     {
         name: 'Dashboard',
-        iconClasses: 'fas fa-tachometer-alt',
-        path: ['/']
+        iconClasses: 'fas fa-home',
+        path: ['/dashboard']
     },
     {
+        name: 'Sale Management',
+        iconClasses: 'fas fa-chart-area',        
+        children: [
+            {
+                name: 'Orders',
+                iconClasses: 'far fa-circle',
+                path: ['/orders']
+            }
+        ]
+    },
+    {
+        name: 'Product List',
+        iconClasses: 'fas fa-seedling',        
+        children: [
+            {
+                name: 'Products',
+                iconClasses: 'far fa-circle',
+                path: ['/product-list']
+            }
+        ]
+    },
+    {
+        name: 'Analytics',
+        iconClasses: 'fas fa-chart-pie',
+    },
+    {
+        name: 'Reports',
+        iconClasses: 'fas fa-file-export',
+    },
+    /* {
         name: 'Blank',
         iconClasses: 'fas fa-file',
         path: ['/blank']
@@ -57,5 +87,25 @@ export const MENU = [
                 path: ['/sub-menu-2']
             }
         ]
+    } */
+    {
+        name: 'Queries',
+        iconClasses: 'fas fa-envelope',        
+        children: [
+            {
+                name: 'View Queries',
+                iconClasses: 'far fa-circle',
+                path: ['/queries']
+            },
+            {
+                name: 'Send Query',
+                iconClasses: 'far fa-circle',
+                path: ['/query-compose']
+            } 
+        ]
     }
+    /* {
+        name: 'Logout',
+        iconClasses: 'fas fa-sign-out-alt',
+    } */
 ];
