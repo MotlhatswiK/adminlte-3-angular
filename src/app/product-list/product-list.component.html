@@ -57,16 +57,22 @@
                             </div>
                         </div> -->
                     </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="search" ng-model="searchText" class="form-control" placeholder="Type your keywords here" value="">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" 
+                                [(ngModel)]="searchText" 
+                                (keyup)="searchCategories()" 
+                                class="form-control" 
+                                placeholder="Type your keywords here"
+                                [ngModelOptions]="{standalone: true}" 
+                                >
+                                <!-- <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div> -->
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </form>
@@ -75,17 +81,35 @@
             <div class="col-md-12 col-sm-12 col-12">
                 <!-- <h4>Products</h4> -->
                 <div id="product">
-                    <div id="p_list" *ngFor="let category of categories">
+                    <div id="p_list" *ngFor="let category of filteredCategories">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
-                                <span style="font-size:16px;">{{ category.description}}</span>
+                                <span style="font-size:16px;">{{category.description}}</span>
                             </div>
                             <div class="card-body">
-                                <a style="text-align: center;" [routerLink]="['/product-type', category.id]"><img src="../../assets/img/product/{{ category.description}}.png "/></a> <!-- {{ category.description}}.png -->
+                                <a style="text-align: center;" [routerLink]="['/product-type', category.id]"><img src="../../assets/img/product/{{ category.description}}.png "/></a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let category of filteredCategories">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img
+                                    [src]="category.imageUrl"
+                                    alt="{{ category.description }}"
+                                    class="img-thumbnail"
+                                />
+                            </div>
+                            <div class="col-md-9">
+                                <h4>{{ category.description }}</h4>
+                            </div>
+                        </div>
+                    </li>
+                </ul> -->
+                
+
             </div>
             <!-- <div class="col-md-8 col-sm-4 col-12" *ngif="list?.length > 0">
             <h4>Shopping Cart</h4>
@@ -109,4 +133,5 @@
         </div>
     </div>
 </div>
+
 

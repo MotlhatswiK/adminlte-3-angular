@@ -45,6 +45,7 @@ import { QueryComposeComponent } from './query/query-compose/query-compose.compo
 import { ProductTypeComponent } from './products/product-type/product-type.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductTestComponent } from './products/product-test/product-test.component';
+import { CartcheckoutComponent } from './cartcheckout/cartcheckout.component';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -80,7 +81,8 @@ registerLocaleData(localeEn, 'en-EN');
         QueryComposeComponent,
         ProductTypeComponent,
         ProductDetailsComponent,
-        ProductTestComponent
+        ProductTestComponent,
+        CartcheckoutComponent
     ],
     imports: [
         ProfabricComponentsModule,

@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   constructor(private http: HttpClient, private productsService: CategoriesService) {}
   ngOnInit(): void {
     this.productsService.getCategories().subscribe((data) => {
-      this.categories = data;
+      this.categories = this.processCategories(data);
       this.filteredCategories = [...this.categories];
     });
   }
@@ -28,15 +28,15 @@ export class ProductListComponent implements OnInit {
     }));
   }
 
-  filterCategories(): void {
+  searchCategories(): void {
     this.filteredCategories = this.categories.filter((category) =>
       category.description.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 
-  searchCategories(): void {
+  /* searchCategories(): void {
     this.filterCategories();
-  }
+  } */
 
   /* onSelect(categoryId){
 
