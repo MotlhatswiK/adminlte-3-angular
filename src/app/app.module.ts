@@ -42,6 +42,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { QueriesComponent } from './query/queries/queries.component';
 import { QueryResponseComponent } from './query/query-response/query-response.component';
 import { QueryComposeComponent } from './query/query-compose/query-compose.component';
+import { ProductTypeComponent } from './products/product-type/product-type.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductTestComponent } from './products/product-test/product-test.component';
 
 registerLocaleData(localeEn, 'en-EN');
 
@@ -74,7 +77,10 @@ registerLocaleData(localeEn, 'en-EN');
         OrdersComponent,
         QueriesComponent,
         QueryResponseComponent,
-        QueryComposeComponent
+        QueryComposeComponent,
+        ProductTypeComponent,
+        ProductDetailsComponent,
+        ProductTestComponent
     ],
     imports: [
         ProfabricComponentsModule,

@@ -20,7 +20,7 @@
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info">
                 <div class="widget-user-image">
-                  <img class="img-circle elevation-2" src="../../../assets/img/profile.jpg" alt="User Avatar">
+                  <img class="img-circle elevation-2" src="../../../assets/img/default-profile.png" alt="User Avatar">
                 </div>
                 <!-- /.widget-user-image -->
                 <h3 class="widget-user-username">{{user.email}}</h3>
@@ -40,12 +40,12 @@
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Facebook <span class="float-right badge bg-success">Kgotso Van de Motlhatswi</span>
+                      Facebook <span class="float-right badge bg-success">{{user.email}}</span>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Linkedin <span class="float-right badge bg-danger">Kgotso Motlhatswi</span>
+                      Linkedin <span class="float-right badge bg-danger">{{user.email}}</span>
                     </a>
                   </li>
                 </ul>

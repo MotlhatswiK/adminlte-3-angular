@@ -8,6 +8,8 @@ import {
 import {UntypedFormGroup, UntypedFormControl, Validators} from '@angular/forms';
 import {AppService} from '@services/app.service';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
+import { RegistrationService } from '../../services/registration-service.service';
 
 @Component({
     selector: 'app-register',
@@ -21,12 +23,26 @@ export class RegisterComponent implements OnInit, OnDestroy {
     public isAuthLoading = false;
     public isGoogleLoading = false;
     public isFacebookLoading = false;
+        confirmpassword :string="";
 
     constructor(
         private renderer: Renderer2,
         private toastr: ToastrService,
-        private appService: AppService
+        private appService: AppService,
+        private register: RegistrationService,
+        private  route: Router 
     ) {}
+
+    user = {
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        active: 1,
+        password: '',
+        lastLogin: '22/09/2023',
+        role:  ''
+
+      };
 
     ngOnInit() {
         this.renderer.addClass(
@@ -68,4 +84,27 @@ export class RegisterComponent implements OnInit, OnDestroy {
             'register-page'
         );
     }
+
+    onSubmit() {
+        const formData = {
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            emailAddress: this.user.emailAddress,
+            active: this.user.active,
+            password: this.user.password,
+            lastLogin: this.user.lastLogin,
+            role: this.user.role,
+        };
+      
+        this.register.registerUser(formData).subscribe({
+          next: (response) => {
+            console.log('User registered successfully', response);
+            alert('User registered successfully');
+            this.route.navigate(['/login']);
+          },
+          error: (error) => {
+            console.error('Error registering user', error);
+          }
+        });
+      }
 }

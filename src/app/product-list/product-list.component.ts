@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CategoriesService } from '@/categories.service';
+import { CategoriesService } from '@services/categories.service';
 
 
 @Component({
@@ -10,16 +10,42 @@ import { CategoriesService } from '@/categories.service';
 })
 export class ProductListComponent implements OnInit {
   categories: any[] = [];
-  constructor(private http: HttpClient, private productsService: CategoriesService) {}
-    ngOnInit(): void {
-      this.loadCategories();
-      
-    }
+  searchText: string = '';
+  filteredCategories: any[] = [];
 
-  loadCategories() {
+  constructor(private http: HttpClient, private productsService: CategoriesService) {}
+  ngOnInit(): void {
+    this.productsService.getCategories().subscribe((data) => {
+      this.categories = data;
+      this.filteredCategories = [...this.categories];
+    });
+  }
+
+  private processCategories(data: any[]): any[] {
+    return data.map((category) => ({
+      ...category,
+      imageUrl: `../../assets/images/${category.description}.png`,
+    }));
+  }
+
+  filterCategories(): void {
+    this.filteredCategories = this.categories.filter((category) =>
+      category.description.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
+  searchCategories(): void {
+    this.filterCategories();
+  }
+
+  /* onSelect(categoryId){
+
+  } */
+
+  /* loadCategories() {
     this.productsService.getCategories().subscribe((data: any) => {
       this.categories = data;
       console.log(this.categories)
     });
-  }
+  } */
 }

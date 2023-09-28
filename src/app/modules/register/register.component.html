@@ -8,18 +8,25 @@
     <div class="card-body">
         <p class="login-box-msg"><b>Eku</b>Trade Register</p>
 
-        <form [formGroup]="registerForm" (ngSubmit)="registerByAuth()">
+        <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
             <div class="input-group mb-3">
-                <select class="form-control" name="role" placeholder="Select Type">
+                <select class="form-control" name="role" placeholder="Select Type" [(ngModel)]="user.role">
                   <option value="">-- Select User Type --</option>
                   <option value=2 >Customer</option>
                   <option value=3>Farmer</option>
-                  <!-- <option value="Market Agent">Market Agent</option>
-                  <option value="Market Admin">Market Admin</option> -->
+                  <option value=4>Market Agent</option>
+                  <option value=5>Cashier</option>
+                  <option value=6>Market Admin</option>
                 </select>  
               </div>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="firstName" placeholder="First Name">
+                <input type="text" 
+                  class="form-control" 
+                  name="firstName" 
+                  placeholder="First Name" 
+                  maxlength="20"  
+                  [(ngModel)]="user.firstName"
+                />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-user"></span>
@@ -27,7 +34,7 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+                <input type="text" class="form-control" name="lastName" placeholder="Last Name" maxlength="20" [(ngModel)]="user.lastName">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-phone-alt"></span>
@@ -35,7 +42,7 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="email" class="form-control" name="emailAddress" placeholder="Email" autocomplete="off">
+                <input type="email" class="form-control" name="emailAddress" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$" maxlength="100" autocomplete="off" [(ngModel)]="user.emailAddress">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
@@ -43,7 +50,29 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
+                <input type="password" 
+                  class="form-control" 
+                  name="password" 
+                  placeholder="Password"
+                  maxlength="20"
+                  title="Password must have a minimum of eight characters, at least one uppercase letter, one lowercase letter, one number and one special character (please use the suggested special charater set: @$_!%*?&)" 
+                  autocomplete="Password" 
+                  [(ngModel)]="user.password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" 
+                  class="form-control" 
+                  name="confirm-password" 
+                  placeholder="Confirm Password"
+                  maxlength="20"
+                  title="Password must have a minimum of eight characters, at least one uppercase letter, one lowercase letter, one number and one special character (please use the suggested special charater set: @$_!%*?&)" 
+                  autocomplete="confirm-Password" 
+                  />
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-lock"></span>
@@ -58,12 +87,7 @@
                   </div>
                 </div>
               </div> -->
-              <div class="input-group mb-3">
-                <input type="hidden" class="form-control" name="active" value=1 autocomplete="off">
-              </div>
-              <div class="input-group mb-3">
-                <input type="hidden" class="form-control" name="lastLogin" value="21/03/2023" autocomplete="off">
-              </div>
+              
             <div class="row">
                 <div class="col-7">
                     <div class="icheck-primary">

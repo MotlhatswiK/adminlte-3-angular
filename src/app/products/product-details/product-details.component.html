@@ -1,0 +1,106 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Product Details</h1>
+        </div>
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-sm-12 col-12">
+          <h4>Name of selected product</h4>
+          <div id = "product">
+            <div id = "p_list"><!-- ng-repeat = "product in products " -->
+              <div class="card card-widget">
+                <div class="card-header">
+                  <div class="user-block col-md-8">
+                    <img class="img-circle" src="../../../assets/img/CoE_Logo-01.png" alt="User Image" style="width: 46px; height: 50px; line-height: .8; margin-right: .5rem; max-height: 50px;">
+                    <span class="username">Agent Name: User Name<a href="#"><!-- {{product.p_agent}} --></a></span>
+                    <span><!-- {{product.p_name}} --></span>
+                    <!-- <span class="description">Shared publicly - 7:30 PM Today</span> -->
+                  </div>
+                  <!-- /.user-block -->
+                  <div class="card-tools">
+                    <!-- <span class="description">Grade {{product.p_grade}}</span> -->
+                    
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <!-- <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                    </button> -->
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <img class="img-fluid pad" src="../../../assets/img/product/Apple.png" alt="Photo"> <!-- ng-src = "{{product.p_image}}" -->
+  
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <span class="description"><b>Price:</b> R <!-- {{product.p_price}} --></span>
+                 <!--  <span class="description">Quantity: {{product.p_quan}}</span> -->
+                  <!-- <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                  <span class="float-right text-muted">127 likes - 3 comments</span> -->
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label> Select Grading:</label>
+                        <select class="select2" style="width: 100%;">
+                            <option selected>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-6 float-right">
+                      <button type = "button" class="btn btn-primary float-right" style="text-align: center;"> Add to cart</button><!-- ng-click = "add_cart(product)" -->
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="col-md-4 col-sm-4 col-12">
+          <h4>Shopping Cart</h4>
+          <div class = "panel-body table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!-- ng-repeat = "cart in carts" ng-init = "setTotals(cart)" -->
+                        <td><!-- {{cart.p_name}} --></td>
+                        <td>R <!-- {{cart.p_price}} --></td>
+                        <td><button type = "button" ng-click = "remove_cart(cart)" class = "btn btn-danger"> X</button></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><b>Total Amount</b></td>
+                        <td colspan="2"><b>R <!-- {{total}} --></b></td>
+                    </tr>
+                    <tr> 
+                      <td colspan="3">
+                        <button type="button" class="btn btn-info"><i class="fas fa-cart-plus"></i> Checkout: R<!-- {{total}} --></button>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>

@@ -19,7 +19,19 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
       this.renderer.addClass(
           document.querySelector('app-root'),
+          'hold-transition'
+      );
+      this.renderer.addClass(
+          document.querySelector('app-root'),
           'welcome'
       ); 
+      this.renderer.removeClass( 
+          document.querySelector('app-root'),
+          'sidebar-open'
+      );
+      this.renderer.removeClass( 
+          document.querySelector('app-root'),
+          'sidebar-mini'
+      );
   }
 }

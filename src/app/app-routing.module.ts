@@ -19,6 +19,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { QueriesComponent } from './query/queries/queries.component';
 import { QueryResponseComponent } from './query/query-response/query-response.component';
 import { QueryComposeComponent } from './query/query-compose/query-compose.component';
+import { ProductTypeComponent } from './products/product-type/product-type.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductTestComponent } from './products/product-test/product-test.component';
 
 const routes: Routes = [
     {
@@ -55,6 +58,14 @@ const routes: Routes = [
                 component: ProductListComponent,
             },
             {
+                path: 'product-type/:id', 
+                component: ProductTypeComponent,
+            },
+            {
+                path: 'product-details', 
+                component: ProductDetailsComponent,
+            },
+            {
                 path: 'orders',
                 component: OrdersComponent,
             },
@@ -63,7 +74,7 @@ const routes: Routes = [
                 component: QueriesComponent,
             },
             {
-                path: 'query-response', //read the query
+                path: 'query-response', 
                 component: QueryResponseComponent,
             },
             {
@@ -71,6 +82,11 @@ const routes: Routes = [
                 component: QueryComposeComponent,
             },
         ]
+    },
+    {
+        path: 'product-test', 
+        component: ProductTestComponent,
+        canActivate: [NonAuthGuard]
     },
     {
         path: 'login',

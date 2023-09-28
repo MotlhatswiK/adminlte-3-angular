@@ -8,8 +8,8 @@ import {
 import {UntypedFormGroup, UntypedFormControl, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {AppService} from '@services/app.service';
-import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     public isGoogleLoading = false;
     public isFacebookLoading = false;
 
-    userId: string = "berry@gmail.com";
-    password: string = "123";
+    userId: string = '';
+    password: string = '';
     errorMessage: string = '';
 
     constructor(
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         private toastr: ToastrService,
         private appService: AppService,
         private authService: AuthService,
-        private router: Router
+        private router:Router
     ) {}
 
     ngOnInit() {
@@ -89,8 +89,9 @@ export class LoginComponent implements OnInit, OnDestroy {
               this.errorMessage = 'Invalid email or password. Please try again.';
             } else {
               this.errorMessage = 'An unexpected error occurred. Please try again later.';
+
             }
           }
         });
-      }
+    }
 }
