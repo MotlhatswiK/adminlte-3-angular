@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
-                <div class="card" style="max-height: 600px; scroll-behavior:auto;">
+                <div class="card" style="max-height: 680px; scroll-behavior:auto;">
                     <div class="card-header">
                         <h3 class="card-title">Select a Product</h3>
 
@@ -40,9 +40,10 @@
                             <th>Description</th>
                             <th>Price</th>
                             <th>Available Quantity</th>
-                            <th>Select Quantity</th>
+                            <th>Size</th>
                             <th>Trader</th>
-                            <th></th>
+                            <th>Quantity</th>
+                            
                         </tr>
                       </thead>
                       <tbody *ngFor="let product of products">
@@ -50,15 +51,18 @@
                             <td>{{product.description}}</td>
                             <td>{{product.price}}</td>
                             <td>{{product.quantity}}</td>
-                            <td><div class="col-md-6"><input type="number" class="form-control" [(ngModel)]="product.selectQuantity" id="quantity" name="quantity" min="1" max="{{product.quantity}}"></div></td>
-                            <td>{{product.emailAddress}}</td>
+                            <td>{{product.specfication}}</td>
+                            <td>{{product.traderName}}</td>
+
+                            <td><div class="col-md-8"><input type="number" class="form-control" [(ngModel)]="product.selectQuantity" id="quantity" name="quantity" min="1" max="{{product.quantity}}"></div></td>
+                           
                             <td>
                                 <div class="col-md-3"><button type="button" class="btn btn-primary" (click)="addToCart(product)">Add to cart</button></div>
                             </td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
+                  </div> 
                 <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
@@ -75,15 +79,15 @@
                               <th>Action</th>
                           </tr>
                       </thead>
-                      <tbody>
-                          <!-- <tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)"> -->
-                          <tr *ngFor="let cartItem of carts; let  i = index">
-                              <td>{{cartItem.description}} </td>
-                              <td>R {{cartItem.price}}</td>
-                              <td>{{cartItem.quantity}}</td>
-                              <td><button type = "button" (click)="removeFromCart(cartItem)" class = "btn btn-danger">X</button></td>
-                          </tr>
+                      <tbody *ngFor="let products of cartdata.products">
+                          <!--<tr ng-repeat = "cart in carts" ng-init = "setTotals(cart)">--> 
                           <tr>
+                              <td>{{products.description}} </td>
+                              <td>R {{products.price}}</td>
+                              <td>{{products.quantity}}</td>
+                              <td><button type = "button" class = "btn btn-danger">X</button></td>
+                          </tr>
+                          <!-- <tr>
                               <td style="text-align: left;"><b>Total Amount</b></td>
                               <td colspan="3" style="text-align: center;"><b>R {{calculateTotal() | number:'1.2-2'}}</b></td>
                           </tr>
@@ -91,8 +95,18 @@
                             <td colspan="4">
                               <div style="align-items: center;"><button type="button" class="btn btn-warning"><i class="fas fa-cart-plus"></i> Checkout: R {{total.toFixed(2)}}</button></div>
                             </td>
-                          </tr>
+                          </tr> -->
                       </tbody>
+                  </table>
+                  <table>
+                    <tr>
+                        <td>
+                            <div style="align-items: center;"><button type="button" class="btn btn-warning"><i class="fas fa-cart-plus"></i> Checkout</button></div>
+                        </td>
+                        <td>
+                            <b> R {{calculateTotal() | number:'1.2-2'}}</b>
+                        </td>
+                    </tr>
                   </table>
                 </div>
             </div>

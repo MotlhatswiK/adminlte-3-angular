@@ -22,6 +22,7 @@ import { QueryComposeComponent } from './query/query-compose/query-compose.compo
 import { ProductTypeComponent } from './products/product-type/product-type.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductTestComponent } from './products/product-test/product-test.component';
+import { CartcheckoutComponent } from './cartcheckout/cartcheckout.component';
 
 const routes: Routes = [
     {
@@ -80,6 +81,10 @@ const routes: Routes = [
             {
                 path: 'query-compose',
                 component: QueryComposeComponent,
+            },
+            {
+                path: 'checkout',
+                component: CartcheckoutComponent,
             },
         ]
     },

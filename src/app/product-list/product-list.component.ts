@@ -18,6 +18,7 @@ export class ProductListComponent implements OnInit {
     this.productsService.getCategories().subscribe((data) => {
       this.categories = this.processCategories(data);
       this.filteredCategories = [...this.categories];
+
     });
   }
 
